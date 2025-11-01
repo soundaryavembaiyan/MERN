@@ -7,6 +7,9 @@ const mongoose = require("mongoose"); //connect mongoose
 const app = express();
 const taskRoutes = require("./routes/taskRoute");
 
+// cors - managing frontend and backend connection(middleware)
+const cors = require('cors');
+
 //Middleware
 app.get('/', (req, res, next) => {
   console.log("path" + req.path + "method" + req.method)
@@ -14,6 +17,7 @@ app.get('/', (req, res, next) => {
 })
 
 app.use(express.json());
+app.use(cors()); //middleware for cors
 
 // app.get('/', (req, res) => {
 //   res.send('Hello World') //visual o/p
